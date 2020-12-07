@@ -1,9 +1,7 @@
-# Dirac Vortex Topological Cavities
+# Near to far field transformation
 Research on the optical far field of Dirac vortex topological cavities
 
-## Near to far field transformation
-
-### Introduction
+## Introduction
 
 MATLAB class `Field2D` supports the some operations on near to far field transformation.
 
@@ -12,7 +10,7 @@ There are a few public properties in `Field2D`:
 + Properties `kx`, `ky`, `fx`, `fy` are matrices of the same size to store the data of far field. `fx` and `fy` are x- and y-components of far field .Different with near field, the coordinate of far field is indicated by the wave vector `kx` and `ky`.
 + Properties `freq0`, `lambda0`, `k0` are the frequency, wavelength, wave vectore in vacuum respectively.
 
-### Methods Declaration
+## Methods Declaration
 
 ```matlab
 obj = Field2D(x_in, y_in, fx_in, fy_in, freq, unit)
@@ -61,7 +59,7 @@ The method `plotFarField(-)` plots the far field power distribution `P=abs(obj.f
 + `density`: this factor determines the density of polarization marks. This factor must be an interger (1,2,3...). A greater `density` indicates a smaller marker density. `density=2` is recommended
 + `range`: this factor determines the ploting range of polarization marks. The marks will be plotted in the area where the internsity `P<Pmax*range`. A smaller `range` indicates a bigger marked area. `range=0.1` is recommended.
 
-### How to use
+## How to use
 
 First, load data from file and use the constructor to assign an object `field`
 ```matlab
