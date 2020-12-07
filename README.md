@@ -17,9 +17,9 @@ obj = Field2D(x_in, y_in, fx_in, fy_in, freq, unit)
 ```
 The constructor accepts the input data of near field to assign a class.
 + `x_in`: the x-coordinate of near field. Must be a n-vector.
-+ `y_in`: the x-coordinate of near field. Must be a n-vector.
++ `y_in`: the y-coordinate of near field. Must be a n-vector.
 + `fx_in`: the x-component of near field. Must be a n-vector.
-+ `fy_in`: the x-component of near field. Must be a n-vector.
++ `fy_in`: the y-component of near field. Must be a n-vector.
 + `freq`: the frequency of the input near field. Must be a real number.
 + `unit`: the unit of x- and y-coordinate. Valid values are `'m', 'cm', 'mm', 'um', 'nm', 'a'`.
 
