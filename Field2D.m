@@ -45,10 +45,10 @@ classdef Field2D
                 fxmesh(indy(i),indx(i)) = fx_in(i);
                 fymesh(indy(i),indx(i)) = fy_in(i);
             end
-            obj.x = xmesh;
-            obj.y = ymesh;
-            obj.nx = fxmesh;
-            obj.ny = fymesh;
+            obj.x = x_in;
+            obj.y = y_in;
+            obj.nx = fx_in;
+            obj.ny = fx_in;
             obj.freq0 = freq;
             obj.lambda0 = obj.c0/freq;
             obj.k0 = 2*pi/obj.c0*freq;
@@ -116,9 +116,6 @@ classdef Field2D
                 end
             end
             Field2D.displog('Calculation of far field completed');
-            Field2D.displog('Closing parallel pool');
-            delete(gcp('nocreate'));
-            Field2D.displog('Parallel pool closed');
             obj.fx = ffx;
             obj.fy = ffy;
             obj.kx = Kx;
