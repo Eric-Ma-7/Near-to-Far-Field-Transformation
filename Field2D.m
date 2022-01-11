@@ -45,10 +45,10 @@ classdef Field2D
                 fxmesh(indy(i),indx(i)) = fx_in(i);
                 fymesh(indy(i),indx(i)) = fy_in(i);
             end
-            obj.x = xmesh;
-            obj.y = ymesh;
-            obj.nx = fxmesh;
-            obj.ny = fymesh;
+            obj.x = x_in;
+            obj.y = y_in;
+            obj.nx = fx_in;
+            obj.ny = fy_in;
             obj.freq0 = freq;
             obj.lambda0 = obj.c0/freq;
             obj.k0 = 2*pi/obj.c0*freq;
@@ -104,7 +104,7 @@ classdef Field2D
             % field integral
             parfor i = 1:(size(Kx,1)*size(Kx,2))
                 if inUnitCircle(i)
-                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i));
+                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i).^2);
                     ir = 1/(2*pi)*exp(1i*k*r).*zf(i)./(r.^2).*(1./r-1i*k);
                     fx_int = ir.*nfx.*dS;
                     fy_int = ir.*nfy.*dS;
@@ -116,9 +116,6 @@ classdef Field2D
                 end
             end
             Field2D.displog('Calculation of far field completed');
-            Field2D.displog('Closing parallel pool');
-            delete(gcp('nocreate'));
-            Field2D.displog('Parallel pool closed');
             obj.fx = ffx;
             obj.fy = ffy;
             obj.kx = Kx;
@@ -161,7 +158,7 @@ classdef Field2D
             % field integral
             for i = 1:(size(Kx,1)*size(Kx,2))
                 if inUnitCircle(i)
-                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i));
+                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i).^2);
                     ir = 1/(2*pi)*exp(1i*k*r).*zf(i)./(r.^2).*(1./r-1i*k);
                     fx_int = ir.*nfx.*dS;
                     fy_int = ir.*nfy.*dS;
