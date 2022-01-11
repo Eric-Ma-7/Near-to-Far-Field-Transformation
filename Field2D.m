@@ -104,7 +104,7 @@ classdef Field2D
             % field integral
             parfor i = 1:(size(Kx,1)*size(Kx,2))
                 if inUnitCircle(i)
-                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i));
+                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i).^2);
                     ir = 1/(2*pi)*exp(1i*k*r).*zf(i)./(r.^2).*(1./r-1i*k);
                     fx_int = ir.*nfx.*dS;
                     fy_int = ir.*nfy.*dS;
@@ -161,7 +161,7 @@ classdef Field2D
             % field integral
             for i = 1:(size(Kx,1)*size(Kx,2))
                 if inUnitCircle(i)
-                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i));
+                    r = sqrt((xf(i)-xn).^2+(yf(i)-yn).^2+zf(i).^2);
                     ir = 1/(2*pi)*exp(1i*k*r).*zf(i)./(r.^2).*(1./r-1i*k);
                     fx_int = ir.*nfx.*dS;
                     fy_int = ir.*nfy.*dS;
