@@ -48,7 +48,7 @@ classdef Field2D
             obj.x = x_in;
             obj.y = y_in;
             obj.nx = fx_in;
-            obj.ny = fx_in;
+            obj.ny = fy_in;
             obj.freq0 = freq;
             obj.lambda0 = obj.c0/freq;
             obj.k0 = 2*pi/obj.c0*freq;
